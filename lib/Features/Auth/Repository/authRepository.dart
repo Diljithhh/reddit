@@ -9,11 +9,19 @@ import 'package:reddit/Common/failures.dart';
 import 'package:reddit/Common/typedef.dart';
 import 'package:reddit/Models/userModel.dart';
 import 'package:reddit/Providers/firebaseProviders.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+//part 'authRepository.g.dart';
 
 final authRepositoryProvider = Provider((ref) {
   return AuthRepository(ref.read(authProvider),
       ref.read(firebasefirestoreProvider), ref.read(googleSigninProvider));
 });
+
+ 
+// AuthRepository authRepository(AuthRepositoryRef ref) {
+//   return AuthRepository(ref.watch(authProvider),
+//       ref.watch(firebasefirestoreProvider), ref.watch(googleSigninProvider));
+// }
 
 class AuthRepository {
   final FirebaseAuth _firebaseAuth;
