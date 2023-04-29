@@ -17,7 +17,6 @@ final authRepositoryProvider = Provider((ref) {
       ref.read(firebasefirestoreProvider), ref.read(googleSigninProvider));
 });
 
- 
 // AuthRepository authRepository(AuthRepositoryRef ref) {
 //   return AuthRepository(ref.watch(authProvider),
 //       ref.watch(firebasefirestoreProvider), ref.watch(googleSigninProvider));
@@ -59,7 +58,8 @@ class AuthRepository {
 
         print('new user');
       } else {
-        userModel = await getUserdata(userCredential.user!.uid).first;
+        userModel = await getUserdata(userCredential.user!.uid)
+            .first; //.first convert stream data to
 
         print('already user');
       }

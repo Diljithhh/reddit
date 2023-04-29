@@ -7,7 +7,8 @@ import 'package:reddit/Common/failures.dart';
 import 'package:reddit/Features/Auth/Repository/authRepository.dart';
 import 'package:reddit/Models/userModel.dart';
 
-final authControllerProvider = StateNotifierProvider<AuthController,bool>((ref) {
+final authControllerProvider =
+    StateNotifierProvider<AuthController, bool>((ref) {
   return AuthController(ref.watch(authRepositoryProvider), ref);
 });
 
@@ -26,6 +27,6 @@ class AuthController extends StateNotifier<bool> {
     state = false;
     user.fold((l) {
       showSnackBar(context, l.message);
-    }, (user) => _ref.watch(userdataProvider.notifier).update((state) => user));
+    }, (r) => _ref.watch(userdataProvider.notifier).update((state) => r));
   }
 }

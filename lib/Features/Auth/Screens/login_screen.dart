@@ -25,7 +25,10 @@ class LoginScreen extends ConsumerWidget {
           ),
           actions: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+
+                
+              },
               child: const Text(
                 'Skip',
                 style: TextStyle(
@@ -44,7 +47,9 @@ class LoginScreen extends ConsumerWidget {
             ),
           ),
           SignInButton()
-        ],
+      ,StreamBuilder(builder: (context, snapshot) {
+        return Container();
+      },)  ],
       ),
     );
   }
