@@ -61,6 +61,8 @@ class AuthRepository {
         userModel = await getUserdata(userCredential.user!.uid)
             .first; //.first convert stream data to
 
+        print("hiiii${userModel.name}");
+
         print('already user');
       }
 
@@ -71,6 +73,8 @@ class AuthRepository {
       return left(Failure(e.toString()));
     }
   }
+
+  Stream get authStateChange => _firebaseAuth.authStateChanges();
 
   void signOut() async {
     try {
