@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reddit/Common/Utils/snackBar.dart';
-import 'package:reddit/Common/failures.dart';
 import 'package:reddit/Features/Auth/Repository/authRepository.dart';
 import 'package:reddit/Models/userModel.dart';
 
@@ -51,5 +50,7 @@ class AuthController extends StateNotifier<bool> {
 
   logout() {
     _authRepository.signOut();
+
+    print('logout');
   }
 }

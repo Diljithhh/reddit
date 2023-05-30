@@ -27,23 +27,27 @@ class MyApp extends ConsumerStatefulWidget {
 
 class _MyAppState extends ConsumerState<MyApp> {
   late UserModel userModel;
+
   getuserdata(WidgetRef ref, User data) async {
+    print('fn called 1');
     userModel = await ref
         .watch(authControllerProvider.notifier)
         .getUserdata(data.uid)
         .first;
 
     ref.read(userdataProvider.notifier).update((state) => userModel);
+    print("neww${userModel.name}");
 
-    setState(() {
-      
-    });
+    //setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return ref.watch(userauthstatechangeprovider).when(
           data: (data) {
+             print('User authentication state changed.');
+                getuserdata(ref, data);
+
             return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               theme: Pallete.darkModeAppTheme,

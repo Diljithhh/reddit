@@ -80,6 +80,8 @@ class AuthRepository {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signOut();
+
+      print('logout sucess');
     } catch (e) {
       print(e.toString());
     }
